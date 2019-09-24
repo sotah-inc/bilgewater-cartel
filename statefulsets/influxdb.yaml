@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: influxdb-statefulset
+spec:
+  selector:
+    matchLabels:
+      app: influxdb-statefulset
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: influxdb-statefulset
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: influxdb-container
+        image: influxdb:1.7
+        ports:
+        - containerPort: 8086
+          name: influxdb-consumer
+        volumeMounts:
+        - name: influxdb-data
+          mountPath: /var/lib/influxdb
+      volumes:
+      - name: influxdb-data
+        persistentVolumeClaim:
+          claimName: general-pvc
