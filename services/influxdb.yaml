@@ -5,8 +5,11 @@ metadata:
   labels:
     app: influxdb-service
 spec:
-  ports:
-    - port: 8086
-      name: ingress
+  type: ClusterIP
   selector:
     app: influxdb-statefulset
+  ports:
+  - protocol: TCP
+    name: ingress
+    port: 8086
+    targetPort: 8086
