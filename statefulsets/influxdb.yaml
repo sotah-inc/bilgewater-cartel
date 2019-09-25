@@ -26,4 +26,4 @@ spec:
       volumes:
       - name: influxdb-data
         persistentVolumeClaim:
-          claimName: general-pvc
+          claimName: influxdb-pvc
