@@ -16,8 +16,18 @@ spec:
       - name: sotah-server-prod-metrics-container
         image: "gcr.io/sotah-prod/server"
         env:
-        - name: PROJECT_ID
-          value: sotah-prod
+          - name: PROJECT_ID
+            value: sotah-prod
+          - name: NATS_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: hostnames
+                key: NATS_HOST
+          - name: NATS_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: hostnames
+                key: NATS_PORT
         command: [
           "/go/bin/app",
           "--cache-dir", "/tmp",
