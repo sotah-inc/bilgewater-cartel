@@ -13,14 +13,14 @@ spec:
         app: sotah-server-prod-gateway-deployment
     spec:
       containers:
-        - name: sotah-server-prod-gateway-container
-          image: "gcr.io/sotah-prod/server"
-          env:
-          - name: PROJECT_ID
-            value: sotah-prod
-          command: [
-            "/go/bin/app",
-            "--cache-dir", "/tmp",
-            "-v", "debug",
-            "prod-gateway"
-          ]
+      - name: sotah-server-prod-gateway-container
+        image: "gcr.io/sotah-prod/server"
+        env:
+        - name: PROJECT_ID
+          value: sotah-prod
+        command: [
+          "/go/bin/app",
+          "--cache-dir", "/tmp",
+          "-v", "debug",
+          "prod-gateway"
+        ]
