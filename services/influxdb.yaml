@@ -5,7 +5,7 @@ metadata:
   labels:
     app: influxdb-service
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: influxdb-statefulset
   ports:
