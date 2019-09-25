@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sotah-server-prod-pricelist-histories-service
+  labels:
+    app: sotah-server-prod-pricelist-histories-service
+spec:
+  type: ClusterIP
+  clusterIP: None
+  selector:
+    app: sotah-server-prod-pricelist-histories-statefulset
