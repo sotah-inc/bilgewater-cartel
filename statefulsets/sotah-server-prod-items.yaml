@@ -38,7 +38,7 @@ spec:
         ]
         volumeMounts:
         - name: sotah-server-prod-items-data
-          mountPath: /srv/items
+          mountPath: /srv/databases
       volumes:
       - name: sotah-server-prod-items-data
         persistentVolumeClaim:
