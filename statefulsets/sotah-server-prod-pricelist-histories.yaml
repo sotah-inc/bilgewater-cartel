@@ -36,6 +36,11 @@ spec:
           "-v", "debug",
           "prod-pricelist-histories"
         ]
+        resources:
+          requests:
+            cpu: 300m
+          limits:
+            cpu: 750m
         volumeMounts:
         - name: sotah-server-prod-pricelist-histories-data
           mountPath: /srv/databases
