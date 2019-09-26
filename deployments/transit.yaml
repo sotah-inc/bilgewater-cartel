@@ -31,3 +31,18 @@ spec:
               configMapKeyRef:
                 name: transit-configmap
                 key: HOSTNAME
+          - name: http_x_forwarded_proto
+            valueFrom:
+              configMapKeyRef:
+                name: transit-configmap
+                key: http_x_forwarded_proto
+          - name: host
+            valueFrom:
+              configMapKeyRef:
+                name: transit-configmap
+                key: host
+          - name: request_uri
+            valueFrom:
+              configMapKeyRef:
+                name: transit-configmap
+                key: request_uri
