@@ -5,7 +5,7 @@ metadata:
   labels:
     app: chronograf-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: chronograf-statefulset
   ports:

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transit-deployment
+spec:
+  selector:
+    matchLabels:
+      app: transit-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: transit-deployment
+    spec:
+      containers:
+      - name: transit-container
+        image: "gcr.io/sotah-prod/bilgewater-cartel/transit"
+        env:
+          - name: DEST_HOSTNAME
+            valueFrom:
+              configMapKeyRef:
+                name: transit-configmap
+                key: DEST_HOSTNAME
+          - name: DEST_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: transit-configmap
+                key: DEST_PORT
+          - name: HOSTNAME
+            valueFrom:
+              configMapKeyRef:
+                name: transit-configmap
+                key: HOSTNAME
