@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: chronograf-statefulset
+spec:
+  selector:
+    matchLabels:
+      app: chronograf-statefulset
+  serviceName: chronograf-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: chronograf-statefulset
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: chronograf-container
+        image: chronograf:1.7
+        env:
+        - name: GOOGLE_CLIENT_ID
+          valueFrom:
+            configMapKeyRef:
+              name: chronograf-configmap
+              key: GOOGLE_CLIENT_ID
+        - name: GOOGLE_CLIENT_SECRET
+          valueFrom:
+            configMapKeyRef:
+              name: chronograf-configmap
+              key: GOOGLE_CLIENT_SECRET
+        - name: GOOGLE_DOMAINS
+          valueFrom:
+            configMapKeyRef:
+              name: chronograf-configmap
+              key: GOOGLE_DOMAINS
+        - name: PUBLIC_URL
+          valueFrom:
+            configMapKeyRef:
+              name: chronograf-configmap
+              key: PUBLIC_URL
+        - name: TOKEN_SECRET
+          valueFrom:
+            configMapKeyRef:
+              name: chronograf-configmap
+              key: TOKEN_SECRET
+        - name: INFLUX_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: chronograf-configmap
+              key: INFLUX_HOST
+        - name: INFLUX_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: chronograf-configmap
+              key: INFLUX_PORT
+        ports:
+        - containerPort: 8888
+          name: ingress
+        volumeMounts:
+        - name: chronograf-data
+          mountPath: /var/lib/chronograf
+      volumes:
+      - name: chronograf-data
+        persistentVolumeClaim:
+          claimName: chronograf-pvc
