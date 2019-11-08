@@ -21,12 +21,12 @@ spec:
           - name: NATS_HOST
             valueFrom:
               configMapKeyRef:
-                name: hostnames
+                name: hostnames-configmap
                 key: NATS_HOST
           - name: NATS_PORT
             valueFrom:
               configMapKeyRef:
-                name: hostnames
+                name: hostnames-configmap
                 key: NATS_PORT
         command: [
           "/go/bin/app",
