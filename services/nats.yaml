@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nats-service
+  name: nats-nodeport-service
   labels:
     app: nats-deployment
 spec:
@@ -17,3 +17,21 @@ spec:
     name: nats-service-ingress
     port: 8222
     targetPort: 8222
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nats-lb-service
+  annotations:
+    cloud.google.com/load-balancer-type: "Internal"
+  labels:
+    app: nats-lb-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: nats-deployment
+  ports:
+    - protocol: TCP
+      name: nats-client-ingress
+      port: 4222
+      targetPort: 4222
