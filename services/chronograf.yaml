@@ -1,15 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: chronograf-service
+  name: chronograf-lb-service
+  annotations:
+    cloud.google.com/load-balancer-type: "Internal"
   labels:
-    app: chronograf-service
+    app: chronograf-lb-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: chronograf-statefulset
   ports:
-  - protocol: TCP
-    name: ingress
-    port: 8888
-    targetPort: 8888
+    - protocol: TCP
+      name: ingress
+      port: 8888
+      targetPort: 8888
