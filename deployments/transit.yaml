@@ -46,3 +46,8 @@ spec:
               configMapKeyRef:
                 name: transit-configmap
                 key: request_uri
+          - name: host
+            valueFrom:
+              configMapKeyRef:
+                name: transit-configmap
+                key: host
