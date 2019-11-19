@@ -4,6 +4,7 @@ metadata:
   name: main-ingress
   annotations:
     kubernetes.io/ingress.global-static-ip-name: "main-ingress-ip"
+    networking.gke.io/managed-certificates: chronograf-managedcertificate
 spec:
   rules:
     - host: chronograf.sotah.info
