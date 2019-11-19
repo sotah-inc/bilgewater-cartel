@@ -36,11 +36,11 @@ spec:
               configMapKeyRef:
                 name: transit-configmap
                 key: http_x_forwarded_proto
-          - name: host
+          - name: HOSTNAME
             valueFrom:
               configMapKeyRef:
                 name: transit-configmap
-                key: host
+                key: HOSTNAME
           - name: request_uri
             valueFrom:
               configMapKeyRef:
