@@ -12,5 +12,5 @@ spec:
         paths:
           - path: /*
             backend:
-              serviceName: chronograf-nodeport-service
-              servicePort: 8888
+              serviceName: transit-service
+              servicePort: 80
