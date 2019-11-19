@@ -4,8 +4,7 @@ metadata:
   name: main-ingress
 spec:
   rules:
-    - host: chronograf.sotah.info
-      http:
+    - http:
         paths:
           - path: /*
             backend:
