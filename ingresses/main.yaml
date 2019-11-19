@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: main-ingress
+spec:
+  rules:
+    - host: chronograf.sotah.info
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: chronograf-nodeport-service
+              servicePort: 8888
