@@ -6,7 +6,8 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: "main-ingress-ip"
 spec:
   rules:
-    - http:
+    - host: chronograf.sotah.info
+      http:
         paths:
           - path: /*
             backend:
