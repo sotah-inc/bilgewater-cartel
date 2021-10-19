@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: chronograf-pvc
+  name: sotah-server
 spec:
   storageClassName: faster
   accessModes:
