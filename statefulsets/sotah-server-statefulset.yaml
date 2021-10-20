@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sotah-server-statefulset
+spec:
+  selector:
+    matchLabels:
+      app: sotah-server-statefulset
+  serviceName: sotah-server-clusterip
+  replicas: 1
+  template:
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: sotah-server-container
+          image: "gcr.io/sotah-prod/server"
+          env:
+            - name: PROJECT_ID
+              value: sotah-prod
+          command: [
+              "/go/bin/app",
+              "--is-local",
+              "--cache-dir", "/srv/databases",
+              "-v", "debug",
+              "prod-items"
+          ]
+          volumeMounts:
+            - name: sotah-server-volume
+              mountPath: /srv/databases
+      volumes:
+        - name: sotah-server-volume
+          persistentVolumeClaim:
+            claimName: sotah-server-pvc
