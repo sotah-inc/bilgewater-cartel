@@ -2,8 +2,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nats-nodeport-service
-  labels:
-    app: nats-deployment
 spec:
   type: NodePort
   selector:
