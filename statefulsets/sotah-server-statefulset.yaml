@@ -20,13 +20,14 @@ spec:
           command: [
               "/go/bin/app",
               "--is-local",
-              "--cache-dir", "/srv/databases",
+              "-c", "/tmp/sotah-server/config.json",
+              "--cache-dir", "/tmp/sotah-server/data",
               "-v", "debug",
-              "prod-items"
+              "api"
           ]
           volumeMounts:
             - name: sotah-server-volume
-              mountPath: /srv/databases
+              mountPath: /srv/sotah-server/data
       volumes:
         - name: sotah-server-volume
           persistentVolumeClaim:
