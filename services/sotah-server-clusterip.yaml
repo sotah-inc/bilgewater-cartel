@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: sotah-server-clusterip
+  labels:
+    app: sotah-server-clusterip
 spec:
   type: ClusterIP
   clusterIP: None
