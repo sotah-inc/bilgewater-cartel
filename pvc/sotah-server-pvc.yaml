@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: sotah-server-pvc
 spec:
-  storageClassName: ""
+  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
