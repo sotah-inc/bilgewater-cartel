@@ -9,26 +9,28 @@ spec:
   serviceName: sotah-server-clusterip
   replicas: 1
   template:
+    metadata:
+      labels:
+        app: sotah-server-statefulset
     spec:
       terminationGracePeriodSeconds: 10
+      imagePullSecrets:
+        - name: gcr-json-key
       containers:
         - name: sotah-server-container
           image: "gcr.io/sotah-prod/server"
-          env:
-            - name: PROJECT_ID
-              value: sotah-prod
           command: [
               "/go/bin/app",
               "--is-local",
               "-c", "/tmp/sotah-server/config.json",
-              "--cache-dir", "/tmp/sotah-server/data",
+              "--cache-dir", "/srv/sotah-server",
               "-v", "debug",
               "api"
           ]
           volumeMounts:
-            - name: sotah-server-volume
-              mountPath: /srv/sotah-server/data
+            - name: sotah-server-data
+              mountPath: /srv/sotah-server
       volumes:
-        - name: sotah-server-volume
+        - name: sotah-server-data
           persistentVolumeClaim:
             claimName: sotah-server-pvc
