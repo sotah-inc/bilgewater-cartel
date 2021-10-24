@@ -22,8 +22,8 @@ spec:
           command: [
               "/go/bin/app",
               "--is-local",
-              "-c", "/tmp/sotah-server/config.json",
-              "--cache-dir", "/srv/sotah-server",
+              "-c", "/srv/sotah-server/config.json",
+              "--cache-dir", "/srv/sotah-server/data",
               "-v", "debug",
               "api"
           ]
