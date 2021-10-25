@@ -27,6 +27,9 @@ spec:
               "-v", "debug",
               "api"
           ]
+          env:
+            - name: NATS_HOST
+              value: nats-clusterip
           volumeMounts:
             - name: sotah-server-data
               mountPath: /srv/sotah-server
