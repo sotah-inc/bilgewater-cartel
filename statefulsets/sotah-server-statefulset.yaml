@@ -30,6 +30,16 @@ spec:
           env:
             - name: NATS_HOST
               value: nats-clusterip
+            - name: CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: battlenet-creds
+                  key: client-id
+            - name: CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: battlenet-creds
+                  key: client-secret
           volumeMounts:
             - name: sotah-server-data
               mountPath: /srv/sotah-server
