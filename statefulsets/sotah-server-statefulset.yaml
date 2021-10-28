@@ -19,6 +19,14 @@ spec:
       containers:
         - name: sotah-server-container
           image: "gcr.io/sotah-prod/server"
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "500Mi"
+            requests:
+              cpu: "250m"
+              memory: "250Mi"
+
           command: [
               "/go/bin/app",
               "--is-local",
