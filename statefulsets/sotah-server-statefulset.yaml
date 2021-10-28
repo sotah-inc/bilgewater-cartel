@@ -26,9 +26,8 @@ spec:
             requests:
               cpu: "250m"
               memory: "250Mi"
-
-          command: [
-              "/go/bin/app",
+          command: ["/go/bin/app"]
+          args: [
               "--is-local",
               "-c", "/srv/sotah-server/config.json",
               "--cache-dir", "/srv/sotah-server/data",
