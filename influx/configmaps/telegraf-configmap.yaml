@@ -8,3 +8,5 @@ data:
   outputs.conf: |
     [[outputs.influxdb]]
     urls = ["http://influxdb-clusterip:8086"]
+    username = "admin"
+    password = "admin"

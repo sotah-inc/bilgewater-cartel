@@ -20,6 +20,17 @@ spec:
           ports:
             - containerPort: 8086
               name: ingress
+          env:
+            - name: DOCKER_INFLUXDB_INIT_MODE
+              value: setup
+            - name: DOCKER_INFLUXDB_INIT_USERNAME
+              value: admin
+            - name: DOCKER_INFLUXDB_INIT_PASSWORD
+              value: admin
+            - name: DOCKER_INFLUXDB_INIT_ORG
+              value: sotah
+            - name: DOCKER_INFLUXDB_INIT_BUCKET
+              value: data
           volumeMounts:
             - name: influxdb-data
               mountPath: /var/lib/influxdb2
