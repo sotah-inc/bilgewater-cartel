@@ -16,7 +16,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
         - name: influxdb-container
-          image: influxdb:2.0
+          image: influxdb:2.0-alpine
           ports:
             - containerPort: 8086
               name: ingress
