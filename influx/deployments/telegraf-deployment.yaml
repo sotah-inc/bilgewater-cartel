@@ -16,9 +16,14 @@ spec:
       containers:
         - name: telegraf-container
           image: telegraf:1.20-alpine
+          command: ["telegraf"]
+          args: [
+              "--config", "/srv/telegraf/1-base.conf",
+              "--config-directory", "/srv/telegraf"
+          ]
           volumeMounts:
             - name: telegraf-data
-              mountPath: /etc/telegraf/telegraf.d
+              mountPath: /srv/telegraf
       volumes:
         - name: telegraf-data
           configMap:
