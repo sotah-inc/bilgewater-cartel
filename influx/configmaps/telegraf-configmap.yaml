@@ -18,19 +18,10 @@ data:
       precision = ""
       hostname = ""
       omit_hostname = false
-    [[inputs.cpu]]
-      percpu = true
-      totalcpu = true
-      collect_cpu_time = false
-      report_active = false
-    [[inputs.disk]]
-      ignore_fs = ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squashfs"]
-    [[inputs.diskio]]
-    [[inputs.kernel]]
-    [[inputs.mem]]
-    [[inputs.processes]]
-    [[inputs.swap]]
-    [[inputs.system]]
+    [[inputs.nats]]
+      server = "http://nats-clusterip:8222"
+#    [[inputs.syslog]]
+#      server = "tcp://:8514"
   2-outputs.conf: |
     [[outputs.influxdb_v2]]
       urls = ["http://influxdb-clusterip:8086"]
