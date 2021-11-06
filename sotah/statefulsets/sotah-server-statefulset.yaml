@@ -47,6 +47,10 @@ spec:
                 secretKeyRef:
                   name: battlenet-creds
                   key: client-secret
+            - name: SYSLOG_HOST
+              value: telegraf-clusterip
+            - name: SYSLOG_PORT
+              value: "6514"
           volumeMounts:
             - name: sotah-server-data
               mountPath: /srv/sotah-server
