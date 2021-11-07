@@ -6,10 +6,6 @@ metadata:
     app: telegraf-clusterip
 spec:
   type: ClusterIP
+  clusterIP: None
   selector:
     app: telegraf-deployment
-  ports:
-    - protocol: TCP
-      name: telegraf-clusterip-syslog-ingress
-      port: 6514
-      targetPort: 6514

@@ -18,11 +18,10 @@ data:
       precision = ""
       hostname = ""
       omit_hostname = false
+  2-inputs.conf: |
     [[inputs.nats]]
       server = "http://nats-clusterip:8222"
-#    [[inputs.syslog]]
-#      server = "tcp://:8514"
-  2-outputs.conf: |
+  3-outputs.conf: |
     [[outputs.influxdb_v2]]
       urls = ["http://influxdb-clusterip:8086"]
       token = "admin-token"
