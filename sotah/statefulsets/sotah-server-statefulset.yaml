@@ -54,6 +54,18 @@ spec:
               mountPath: /srv/sotah-server
             - name: logs-volume
               mountPath: /var/log
+        - name: telegraf-container
+          image: telegraf:1.20-alpine
+          command: ["telegraf"]
+          args: [
+              "--config", "/srv/telegraf/1-base.conf",
+              "--config-directory", "/srv/telegraf"
+          ]
+          volumeMounts:
+            - name: telegraf-sidecar-volume
+              mountPath: /srv/telegraf
+            - name: logs-volume
+              mountPath: /srv/sotah-logs
       volumes:
         - name: sotah-server-volume
           persistentVolumeClaim:
@@ -61,3 +73,6 @@ spec:
         - name: logs-volume
           persistentVolumeClaim:
             claimName: logs-pvc
+        - name: telegraf-sidecar-volume
+          configMap:
+            name: telegraf-sidecar-configmap
