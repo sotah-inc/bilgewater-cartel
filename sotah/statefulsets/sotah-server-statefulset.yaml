@@ -48,11 +48,16 @@ spec:
                   name: battlenet-creds
                   key: client-secret
             - name: LOGFILE
-              value: /srv/sotah-server/app.log
+              value: /var/log/sotah-server.log
           volumeMounts:
-            - name: sotah-server-data
+            - name: sotah-server-volume
               mountPath: /srv/sotah-server
+            - name: logs-volume
+              mountPath: /var/log
       volumes:
-        - name: sotah-server-data
+        - name: sotah-server-volume
           persistentVolumeClaim:
             claimName: sotah-server-pvc
+        - name: logs-volume
+          persistentVolumeClaim:
+            claimName: logs-pvc
