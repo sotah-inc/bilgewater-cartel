@@ -22,10 +22,9 @@ data:
     [[inputs.nats]]
       server = "http://nats-clusterip:8222"
     [[inputs.syslog]]
-      server = "tcp://:6514"
+      server = "tcp://0.0.0.0:6514"
+      syslog_standard = "RFC5424"
   3-outputs.conf: |
-    [[outputs.influxdb_v2]]
+    [[outputs.influxdb]]
       urls = ["http://influxdb-clusterip:8086"]
-      token = "admin-token"
-      organization = "sotah"
-      bucket = "data"
+      database = "telegraf"

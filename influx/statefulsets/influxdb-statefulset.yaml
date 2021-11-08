@@ -16,29 +16,24 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
         - name: influxdb-container
-          image: influxdb:2.0-alpine
+          image: influxdb:1.8-alpine
+          resources:
+            limits:
+              cpu: "1000m"
+              memory: "500Mi"
+            requests:
+              cpu: "500m"
+              memory: "250Mi"
           ports:
             - containerPort: 8086
               name: ingress
           env:
-            - name: DOCKER_INFLUXDB_INIT_MODE
-              value: setup
-            - name: DOCKER_INFLUXDB_INIT_USERNAME
-              value: admin
-            - name: DOCKER_INFLUXDB_INIT_PASSWORD
-              value: adminadmin
-            - name: DOCKER_INFLUXDB_INIT_ORG
-              value: sotah
-            - name: DOCKER_INFLUXDB_INIT_BUCKET
-              value: data
-            - name: DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
-              value: admin-token
-            - name: INFLUXD_HTTP_BIND_ADDRESS
-              value: 0.0.0.0:8086
+            - name: INFLUXDB_DB
+              value: telegraf
           volumeMounts:
-            - name: influxdb-data
-              mountPath: /var/lib/influxdb2
+            - name: influxdb-volume
+              mountPath: /var/lib/influxdb
       volumes:
-        - name: influxdb-data
+        - name: influxdb-volume
           persistentVolumeClaim:
             claimName: influxdb-pvc
