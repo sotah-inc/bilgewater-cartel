@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: grafana-statefulset
+spec:
+  selector:
+    matchLabels:
+      app: grafana-statefulset
+  serviceName: grafana-nodeport
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: grafana-statefulset
+    spec:
+      terminationGracePeriodSeconds: 10
+      securityContext:
+        runAsUser: 472
+        fsGroup: 472
+      containers:
+        - name: grafana-container
+          image: grafana/grafana:8.2.3
+          ports:
+            - containerPort: 3000
+              name: ingress
+          env:
+            - name: GF_PATHS_DATA
+              value: /srv/grafana/data
+            - name: GF_PATHS_LOGS
+              value: /srv/grafana/logs
+            - name: GF_LOG_MODE
+              value: console file
+          volumeMounts:
+            - name: grafana-volume
+              mountPath: /srv/grafana
+      volumes:
+        - name: grafana-volume
+          persistentVolumeClaim:
+            claimName: grafana-pvc
