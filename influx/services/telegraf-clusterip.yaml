@@ -10,6 +10,6 @@ spec:
     app: telegraf-deployment
   ports:
     - protocol: TCP
-      name: telegraf-clusterip-syslog-ingress
-      port: 6514
-      targetPort: 6514
+      name: telegraf-clusterip-influxdb-ingress
+      port: 8186
+      targetPort: 8186

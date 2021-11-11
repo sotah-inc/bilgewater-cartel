@@ -21,5 +21,6 @@ data:
       files = ["/srv/sotah-logs/sotah-server.log"]
       data_format = "logfmt"
   3-outputs.conf: |
-    [[outputs.syslog]]
-      address = "tcp://telegraf-clusterip:6514"
+    [[outputs.influxdb]]
+      urls = ["http://influxdb-clusterip:8086"]
+      database = "telegraf"

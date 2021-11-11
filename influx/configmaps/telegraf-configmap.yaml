@@ -21,9 +21,11 @@ data:
   2-inputs.conf: |
     [[inputs.nats]]
       server = "http://nats-clusterip:8222"
-    [[inputs.syslog]]
-      server = "tcp://0.0.0.0:6514"
-      syslog_standard = "RFC5424"
+    [[inputs.influxdb_listener]]
+      service_address = ":8186"
+      read_timeout = "10s"
+      write_timeout = "10s"
+      max_body_size = 0
   3-outputs.conf: |
     [[outputs.influxdb]]
       urls = ["http://influxdb-clusterip:8086"]
