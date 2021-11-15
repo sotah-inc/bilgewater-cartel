@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: sotah-server-pvc
+  name: pvc
 spec:
-  storageClassName: local-path
+  storageClassName: ""
   accessModes:
     - ReadWriteOnce
   resources:

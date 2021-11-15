@@ -1,23 +1,20 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: sotah-server-statefulset
+  name: statefulset
 spec:
   selector:
     matchLabels:
-      app: sotah-server-statefulset
-  serviceName: sotah-server-clusterip
+      app: statefulset
+  serviceName: clusterip
   replicas: 1
   template:
-    metadata:
-      labels:
-        app: sotah-server-statefulset
     spec:
       terminationGracePeriodSeconds: 10
       imagePullSecrets:
         - name: gcr-json-key
       containers:
-        - name: sotah-server-container
+        - name: container
           image: "gcr.io/sotah-prod/server"
           resources:
             limits:
@@ -48,9 +45,9 @@ spec:
                   name: battlenet-creds
                   key: client-secret
           volumeMounts:
-            - name: sotah-server-volume
+            - name: volume
               mountPath: /srv/sotah-server
       volumes:
-        - name: sotah-server-volume
+        - name: volume
           persistentVolumeClaim:
-            claimName: sotah-server-pvc
+            claimName: pvc
