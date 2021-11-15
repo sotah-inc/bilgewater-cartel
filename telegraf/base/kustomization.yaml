@@ -1,0 +1,4 @@
+resources:
+  - clusterip.yaml
+  - configmap.yaml
+  - deployment.yaml
