@@ -1,9 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: telegraf-configmap
-  labels:
-    app: telegraf-deployment
+  name: configmap
 data:
   1-base.conf: |
     [global_tags]
