@@ -1,21 +1,18 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: influxdb-statefulset
+  name: statefulset
 spec:
   selector:
     matchLabels:
-      app: influxdb-statefulset
-  serviceName: influxdb-clusterip
+      app: statefulset
+  serviceName: clusterip
   replicas: 1
   template:
-    metadata:
-      labels:
-        app: influxdb-statefulset
     spec:
       terminationGracePeriodSeconds: 10
       containers:
-        - name: influxdb-container
+        - name: container
           image: influxdb:1.8-alpine
           resources:
             limits:
@@ -31,9 +28,9 @@ spec:
             - name: INFLUXDB_DB
               value: telegraf
           volumeMounts:
-            - name: influxdb-volume
+            - name: volume
               mountPath: /var/lib/influxdb
       volumes:
-        - name: influxdb-volume
+        - name: volume
           persistentVolumeClaim:
-            claimName: influxdb-pvc
+            claimName: pvc

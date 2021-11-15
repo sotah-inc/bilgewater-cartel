@@ -1,15 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: influxdb-clusterip
-  labels:
-    app: influxdb-clusterip
+  name: clusterip
 spec:
   type: ClusterIP
   selector:
-    app: influxdb-statefulset
+    app: statefulset
   ports:
     - protocol: TCP
-      name: influxdb-clusterip-client-ingress
+      name: clusterip-client-ingress
       port: 8086
       targetPort: 8086
