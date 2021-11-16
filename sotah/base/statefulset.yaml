@@ -47,7 +47,7 @@ spec:
           volumeMounts:
             - name: volume
               mountPath: /srv/sotah-server
-            - name: config
+            - name: configmap
               mountPath: /srv/sotah-server/config.json
               subPath: config.json
       volumes:
