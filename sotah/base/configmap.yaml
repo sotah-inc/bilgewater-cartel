@@ -1,0 +1,79 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap
+data:
+  config.json: |
+  {
+    "regions": [
+      {
+        "name": "us",
+        "hostname": "us.api.blizzard.com",
+        "primary": true
+      },
+      {
+        "name": "eu",
+        "hostname": "eu.api.blizzard.com"
+      },
+      {
+        "name": "kr",
+        "hostname": "kr.api.blizzard.com"
+      },
+      {
+        "name": "tw",
+        "hostname": "tw.api.blizzard.com"
+      }
+    ],
+    "game_versions": ["classic", "retail"],
+    "feature_flags": {
+      "auctions": ["retail"]
+    },
+    "whitelist": {
+      "us": {
+        "classic": ["earthfury"],
+        "retail": ["earthen-ring", "aegwynn"]
+      },
+      "eu": {
+        "classic": [],
+        "retail": []
+      },
+      "kr": {
+        "classic": [],
+        "retail": []
+      },
+      "tw": {
+        "classic": [],
+        "retail": []
+      }
+    },
+    "expansions": [
+      { "name": "shadowlands", "label": "Shadowlands", "label_color": "#CED9E0", "primary": true },
+      { "name": "bfa", "label": "Battle for Azeroth", "label_color": "#CED9E0" },
+      { "name": "legion", "label": "Legion", "label_color": "#62D96B" },
+      { "name": "warlords", "label": "Warlords of Draenor", "label_color": "#FFB366" },
+      { "name": "pandaria", "label": "Mists of Pandaria", "label_color": "#2EE6D6" },
+      { "name": "cataclysm", "label": "Cataclysm", "label_color": "#FF6E4A" },
+      { "name": "wotlk", "label": "Wrath of the Lich King", "label_color": "#48AFF0" },
+      { "name": "tbc", "label": "The Burning Crusade", "label_color": "#43BF4D" },
+      { "name": "vanilla", "label": "Vanilla", "label_color": "#FFC940" }
+    ],
+    "primary_skilltiers": {
+      "164": [2751],
+      "202": [2755],
+      "165": [2758],
+      "171": [2750],
+      "182": [2760],
+      "185": [2752],
+      "186": [2761],
+      "197": [2759],
+      "333": [2753],
+      "356": [2754],
+      "393": [2762],
+      "755": [2757],
+      "773": [2756]
+    },
+    "professions_blacklist":  [794, 2777, 2787, 2791, 182, 186, 356, 393, 2811],
+    "firebase_config": {
+      "browser_api_key": ""
+    }
+  }

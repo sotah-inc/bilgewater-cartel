@@ -47,7 +47,16 @@ spec:
           volumeMounts:
             - name: volume
               mountPath: /srv/sotah-server
+            - name: config
+              mountPath: /srv/sotah-server/config.json
+              subPath: config.json
       volumes:
         - name: volume
           persistentVolumeClaim:
             claimName: pvc
+        - name: configmap
+          configMap:
+            name: configmap
+            items:
+              - key: config.json
+                path: config.json

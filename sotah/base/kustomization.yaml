@@ -7,3 +7,4 @@ resources:
   - pvc.yaml
   - clusterip.yaml
   - statefulset.yaml
+  - configmap.yaml
