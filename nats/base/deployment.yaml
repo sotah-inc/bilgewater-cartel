@@ -19,3 +19,8 @@ spec:
             requests:
               cpu: "100m"
               memory: "100Mi"
+          ports:
+            - containerPort: 4222
+              name: public
+            - containerPort: 8222
+              name: server
