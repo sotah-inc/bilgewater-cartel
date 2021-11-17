@@ -13,7 +13,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
         - name: container
-          image: "postgres:11"
+          image: "postgres:11-alpine"
           env:
             - name: POSTGRES_HOST_AUTH_METHOD
               value: trust
