@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  selector:
+    matchLabels:
+      app: deployment
+  replicas: 1
+  template:
+    spec:
+      imagePullSecrets:
+        - name: gcr-json-key
+      containers:
+        - name: container
+          image: "gcr.io/sotah-prod/ui"
+          resources:
+            limits:
+              cpu: "1000m"
+              memory: "500Mi"
+            requests:
+              cpu: "500m"
+              memory: "250Mi"
+          command: ["npm", "start"]
+          args: ["-s"]
+          env:
+            - name: PORT
+              value: "3000"
+            - name: PUBLIC_API_ENDPOINT
+              value: http://localhost:30001
+            - name: SERVER_API_ENDPOINT
+              value: http://sotah-api-nodeport:8080
+          ports:
+            - containerPort: 3000
+            - containerPort: 3000
+              name: public
