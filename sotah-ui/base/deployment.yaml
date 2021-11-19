@@ -26,10 +26,12 @@ spec:
           env:
             - name: PORT
               value: "3000"
-            - name: PUBLIC_SERVER_API_ENDPOINT
-              value: http://localhost:30002
             - name: PRIVATE_SERVER_API_ENDPOINT
               value: http://sotah-api-nodeport:8080
+            - name: PUBLIC_SERVER_API_ENDPOINT
+              value: http://sotah-api-nodeport:8081
+            - name: PUBLIC_API_ENDPOINT
+              value: http://localhost:30002
           ports:
             - containerPort: 3000
             - containerPort: 3000
