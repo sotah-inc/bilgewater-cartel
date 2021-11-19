@@ -8,7 +8,12 @@ spec:
     app: deployment
   ports:
     - protocol: TCP
-      name: nodeport-public-ingress
+      name: nodeport-private-ingress
       port: 8080
       targetPort: 8080
       nodePort: 30001
+    - protocol: TCP
+      name: nodeport-public-ingress
+      port: 8081
+      targetPort: 8081
+      nodePort: 30002
