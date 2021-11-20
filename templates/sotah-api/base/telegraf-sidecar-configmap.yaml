@@ -18,9 +18,9 @@ data:
       omit_hostname = false
   2-inputs.conf: |
     [[inputs.tail]]
-      files = ["/srv/app/logs/current.log"]
+      files = ["/srv/sotah-logs/current.log"]
       data_format = "json"
   3-outputs.conf: |
     [[outputs.influxdb]]
-      urls = ["http://telegraf-clusterip:8086"]
+      urls = ["http://telegraf-clusterip:8186"]
       database = "telegraf"

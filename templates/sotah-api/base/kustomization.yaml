@@ -4,6 +4,7 @@ namePrefix: sotah-api-
 commonLabels:
   app: sotah-api
 resources:
-  - pvc.yaml
+  - logs-pvc.yaml
   - nodeport.yaml
+  - telegraf-sidecar-configmap.yaml
   - statefulset.yaml
