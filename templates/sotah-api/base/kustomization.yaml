@@ -4,5 +4,6 @@ namePrefix: sotah-api-
 commonLabels:
   app: sotah-api
 resources:
+  - pvc.yaml
   - nodeport.yaml
-  - deployment.yaml
+  - statefulset.yaml

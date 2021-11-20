@@ -5,7 +5,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: deployment
+    app: statefulset
   ports:
     - protocol: TCP
       name: nodeport-private-ingress
