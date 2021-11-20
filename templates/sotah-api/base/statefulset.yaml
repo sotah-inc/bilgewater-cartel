@@ -48,9 +48,9 @@ spec:
             - containerPort: 8081
               name: public
           volumeMounts:
-            - name: volume
+            - name: logs-volume
               mountPath: /srv/app/logs
       volumes:
-        - name: volume
+        - name: logs-volume
           persistentVolumeClaim:
-            claimName: pvc
+            claimName: logs-pvc
