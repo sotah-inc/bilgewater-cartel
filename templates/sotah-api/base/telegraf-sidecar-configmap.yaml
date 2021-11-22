@@ -19,8 +19,11 @@ data:
   2-inputs.conf: |
     [[inputs.tail]]
       files = ["/srv/sotah-logs/current.log"]
-      data_format = "json"
+      data_format = "logfmt"
   3-outputs.conf: |
     [[outputs.influxdb]]
       urls = ["http://telegraf-clusterip:8186"]
       database = "telegraf"
+    [[outputs.file]]
+      files = ["/var/log/metrics.out"]
+      data_format = "influx"
