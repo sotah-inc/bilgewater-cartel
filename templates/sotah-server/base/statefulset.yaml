@@ -44,6 +44,10 @@ spec:
                 secretKeyRef:
                   name: battlenet-creds
                   key: client-secret
+            - name: INFLUXDB_LOG_HOST
+              value: telegraf-clusterip
+            - name: INFLUXDB_LOG_PORT
+              value: "8186"
           volumeMounts:
             - name: volume
               mountPath: /srv/sotah-server
