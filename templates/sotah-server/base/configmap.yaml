@@ -24,10 +24,30 @@ data:
           "hostname": "tw.api.blizzard.com"
         }
       ],
-      "game_versions": ["classic", "retail"],
-      "feature_flags": {
-        "auctions": ["retail"]
-      },
+      "game_version_meta": [
+        {
+          "name": "classic",
+          "label": { "en_US": "Classic" },
+          "expansions": [],
+          "feature_flags": []
+        },
+        {
+          "name": "retail",
+          "label": { "en_US": "Retail" },
+          "expansions": [
+            { "name": "shadowlands", "label": "Shadowlands", "label_color": "#CED9E0", "primary": true },
+            { "name": "bfa", "label": "Battle for Azeroth", "label_color": "#CED9E0" },
+            { "name": "legion", "label": "Legion", "label_color": "#62D96B" },
+            { "name": "warlords", "label": "Warlords of Draenor", "label_color": "#FFB366" },
+            { "name": "pandaria", "label": "Mists of Pandaria", "label_color": "#2EE6D6" },
+            { "name": "cataclysm", "label": "Cataclysm", "label_color": "#FF6E4A" },
+            { "name": "wotlk", "label": "Wrath of the Lich King", "label_color": "#48AFF0" },
+            { "name": "tbc", "label": "The Burning Crusade", "label_color": "#43BF4D" },
+            { "name": "vanilla", "label": "Vanilla", "label_color": "#FFC940" }
+          ],
+          "feature_flags": ["auctions"]
+        }
+      ],
       "whitelist": {
         "us": {
           "classic": ["earthfury"],
@@ -46,17 +66,6 @@ data:
           "retail": []
         }
       },
-      "expansions": [
-        { "name": "shadowlands", "label": "Shadowlands", "label_color": "#CED9E0", "primary": true },
-        { "name": "bfa", "label": "Battle for Azeroth", "label_color": "#CED9E0" },
-        { "name": "legion", "label": "Legion", "label_color": "#62D96B" },
-        { "name": "warlords", "label": "Warlords of Draenor", "label_color": "#FFB366" },
-        { "name": "pandaria", "label": "Mists of Pandaria", "label_color": "#2EE6D6" },
-        { "name": "cataclysm", "label": "Cataclysm", "label_color": "#FF6E4A" },
-        { "name": "wotlk", "label": "Wrath of the Lich King", "label_color": "#48AFF0" },
-        { "name": "tbc", "label": "The Burning Crusade", "label_color": "#43BF4D" },
-        { "name": "vanilla", "label": "Vanilla", "label_color": "#FFC940" }
-      ],
       "primary_skilltiers": {
         "164": [2751],
         "202": [2755],
