@@ -25,11 +25,11 @@ spec:
               memory: "250Mi"
           command: ["/go/bin/app"]
           args: [
-              "--is-local",
-              "-c", "/srv/sotah-server/config.json",
-              "--cache-dir", "/srv/sotah-server/data",
-              "-v", "debug",
-              "api"
+            "--is-local",
+            "-c", "/srv/sotah-server/config.json",
+            "--cache-dir", "/srv/sotah-server/data",
+            "-v", "debug",
+            "api"
           ]
           env:
             - name: NATS_HOST
