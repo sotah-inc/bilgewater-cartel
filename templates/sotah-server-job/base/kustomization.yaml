@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namePrefix: sotah-server-job-
+commonLabels:
+  app: sotah-server-job
+resources:
+  - pvc.yaml
+  - clusterip.yaml
+  - job.yaml
+  - configmap.yaml
