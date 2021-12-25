@@ -4,7 +4,6 @@ namePrefix: sotah-server-job-
 commonLabels:
   app: sotah-server-job
 resources:
-  - pvc.yaml
   - clusterip.yaml
   - job.yaml
   - configmap.yaml
