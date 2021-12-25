@@ -25,7 +25,7 @@ spec:
             "-c", "/srv/sotah-server/config.json",
             "--cache-dir", "/srv/sotah-server/data",
             "-v", "debug",
-            "blah"
+            "download-auctions"
           ]
           env:
             - name: NATS_HOST
