@@ -4,7 +4,6 @@ namePrefix: sotah-server-api-
 commonLabels:
   app: sotah-server-api
 resources:
-  - pvc.yaml
   - clusterip.yaml
   - statefulset.yaml
   - configmap.yaml

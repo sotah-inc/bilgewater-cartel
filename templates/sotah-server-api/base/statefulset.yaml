@@ -57,7 +57,7 @@ spec:
       volumes:
         - name: volume
           persistentVolumeClaim:
-            claimName: pvc
+            claimName: sotah-server-pvc-pvc
         - name: configmap
           configMap:
             name: configmap
