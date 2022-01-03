@@ -50,8 +50,7 @@ data:
       ],
       "whitelist": {
         "us": {
-          "classic": ["earthfury"],
-          "retail": ["earthen-ring", "aegwynn"]
+          "classic": ["earthfury"]
         },
         "eu": {
           "classic": [],
